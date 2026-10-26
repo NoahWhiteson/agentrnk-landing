@@ -1,0 +1,116 @@
+.wrap {
+  --dashboard-rim: 3.5px;
+  --dashboard-radius: 16px;
+
+  position: relative;
+  z-index: 14;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  isolation: isolate;
+  padding: var(--dashboard-rim);
+  border-radius: var(--dashboard-radius);
+  overflow: hidden;
+  background: linear-gradient(160deg, #1c1f28 0%, #12141a 100%);
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.45),
+    0 0 24px rgba(56, 189, 248, 0.08),
+    0 40px 80px rgba(0, 0, 0, 0.55);
+}
+
+.wrap::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -40%;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    #1a2332 0deg 250deg,
+    #2dd4bf 268deg,
+    #38bdf8 286deg,
+    #a78bfa 304deg,
+    #f0abfc 318deg,
+    #38bdf8 334deg,
+    #1a2332 352deg 360deg
+  );
+  transform-origin: 50% 50%;
+  animation: dashboardRimShimmer 14s linear infinite;
+  will-change: transform;
+}
+
+.wrap::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--dashboard-rim);
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(56, 189, 248, 0.2) 46%,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(167, 139, 250, 0.25) 54%,
+    transparent 60%
+  );
+  background-size: 220% 220%;
+  animation: dashboardRimSweep 18s ease-in-out infinite;
+  pointer-events: none;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  border-radius: calc(var(--dashboard-radius) - var(--dashboard-rim));
+  overflow: hidden;
+  background: #0c0c0c;
+  line-height: 0;
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+@keyframes dashboardRimShimmer {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dashboardRimSweep {
+  0% {
+    background-position: 130% 40%;
+  }
+
+  100% {
+    background-position: -30% 60%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wrap::before,
+  .wrap::after {
+    animation: none;
+  }
+
+  .wrap::before {
+    inset: 0;
+    background: linear-gradient(135deg, #2dd4bf, #38bdf8 45%, #a78bfa);
+  }
+
+  .wrap::after {
+    display: none;
+  }
+}

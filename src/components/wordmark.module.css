@@ -1,0 +1,8 @@
+.logo {
+  display: block;
+  height: 1.15rem;
+  opacity: 0.95;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}

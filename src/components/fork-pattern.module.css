@@ -1,0 +1,31 @@
+.pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  mask-image:
+    linear-gradient(to bottom, #000 0%, #000 42%, rgba(0, 0, 0, 0.35) 72%, transparent 100%),
+    radial-gradient(ellipse 90% 80% at 30% 0%, #000 0%, transparent 70%);
+  mask-composite: intersect;
+}
+
+.line {
+  fill: none;
+  stroke: #fff;
+  stroke-opacity: 0.18;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cross {
+  fill: none;
+  stroke: #fff;
+  stroke-opacity: 0.38;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}

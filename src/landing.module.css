@@ -1,0 +1,191 @@
+html,
+body {
+  margin: 0;
+  background: #0a0a0a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.page {
+  --text: #f5f5f5;
+  --muted: rgba(255, 255, 255, 0.55);
+  --display: clamp(2.35rem, 4.2vw + 1rem, 3.65rem);
+
+  position: relative;
+  min-height: 100svh;
+  background: #0a0a0a;
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  padding: 1.1rem clamp(1.25rem, 4vw, 2.5rem) 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.92) 0%, rgba(10, 10, 10, 0) 100%);
+}
+
+.headerBar {
+  pointer-events: auto;
+  max-width: 82rem;
+  margin-inline: auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logoLink {
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.headerCta {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  padding-top: 4.5rem;
+}
+
+.hero {
+  max-width: 82rem;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 2.5rem) 0;
+}
+
+.heroInner {
+  max-width: 42rem;
+  text-align: left;
+}
+
+.heroTitle {
+  margin: 0 0 1.35rem;
+  font-size: var(--display);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+
+.heroLead {
+  margin: 0 0 1.75rem;
+  max-width: 36rem;
+  font-size: clamp(0.98rem, 1.4vw, 1.0625rem);
+  line-height: 1.55;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1.75rem;
+}
+
+.heroStage {
+  position: relative;
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  padding-bottom: clamp(2rem, 6vw, 4rem);
+}
+
+.heroFog {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  z-index: 0;
+  width: min(140%, 72rem);
+  height: min(55vh, 28rem);
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse 55% 45% at 50% 85%,
+    rgba(160, 160, 160, 0.14) 0%,
+    rgba(80, 80, 80, 0.06) 42%,
+    transparent 72%
+  );
+  filter: blur(28px);
+  pointer-events: none;
+}
+
+.heroStage > :last-child {
+  position: relative;
+  z-index: 1;
+}
+
+.sectionInner {
+  max-width: 82rem;
+  margin: 0 auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.trust {
+  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trustTitle {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: -0.01em;
+}
+
+.features {
+  padding-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.bottomCta {
+  padding: clamp(4rem, 10vw, 6rem) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bottomTitle {
+  margin: 0 0 1.35rem;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.footer {
+  padding: 2rem 0 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer .sectionInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.8125rem;
+}
+
+.footerLinks a {
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+}
+
+.footerLinks a:hover {
+  color: #fff;
+}

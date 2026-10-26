@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
 import { Btn } from "./Btn";
+import { ProductCut } from "./ProductCut";
 import styles from "./feature-block.module.css";
 
 export function FeatureBlock({
@@ -7,14 +7,18 @@ export function FeatureBlock({
   body,
   href,
   linkLabel,
-  media,
+  mediaSrc,
+  mediaAlt,
+  mediaFrameClass,
   reverse,
 }: {
   title: string;
   body: string;
   href: string;
   linkLabel: string;
-  media: ReactNode;
+  mediaSrc: string;
+  mediaAlt: string;
+  mediaFrameClass?: string;
   reverse?: boolean;
 }) {
   return (
@@ -27,7 +31,7 @@ export function FeatureBlock({
           <span aria-hidden> →</span>
         </Btn>
       </div>
-      <div className={styles.media}>{media}</div>
+      <ProductCut src={mediaSrc} alt={mediaAlt} className={mediaFrameClass} />
     </article>
   );
 }

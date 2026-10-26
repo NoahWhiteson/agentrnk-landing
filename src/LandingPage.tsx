@@ -1,15 +1,13 @@
 import { USAGE_SYNC_AGENTS } from "@/lib/coding-agents";
-import {
-  LandingAgentTools,
-  LandingLeaderboardPreview,
-  LandingProfileActivity,
-  LandingProfileHero,
-} from "@/marketing/landing-ui";
 import { AgentLogoStrip } from "./components/AgentLogoStrip";
 import { Btn } from "./components/Btn";
 import { FeatureBlock } from "./components/FeatureBlock";
+import { ProductCut } from "./components/ProductCut";
+import { UiShowcase } from "./components/UiShowcase";
 import { Wordmark } from "./components/Wordmark";
+import { productShots } from "./lib/media-shots";
 import styles from "./landing.module.css";
+import featureStyles from "./components/feature-block.module.css";
 
 const APP = "https://agentrnk.xyz";
 const DEMO_PROFILE = "cursor";
@@ -52,9 +50,7 @@ export function LandingPage() {
             <AgentLogoStrip />
           </div>
 
-          <div className={styles.heroProduct}>
-            <LandingProfileHero />
-          </div>
+          <UiShowcase />
         </section>
 
         <section className={styles.trust}>
@@ -66,29 +62,61 @@ export function LandingPage() {
           </div>
         </section>
 
+        <section className={styles.bento}>
+          <div className={styles.sectionInner}>
+            <h2 className={styles.bentoTitle}>The same UI you use every day</h2>
+            <p className={styles.bentoLead}>
+              Real product surfaces from agentrnk.xyz—profile stats, usage charts, and focus heatmaps.
+            </p>
+            <div className={styles.bentoGrid}>
+              <ProductCut
+                className={styles.bentoTile}
+                src={productShots.profileHeader.src}
+                alt={productShots.profileHeader.alt}
+              />
+              <ProductCut
+                className={styles.bentoTile}
+                src={productShots.profileUsage.src}
+                alt={productShots.profileUsage.alt}
+              />
+              <ProductCut
+                className={[styles.bentoTile, styles.bentoWide].join(" ")}
+                src={productShots.profileFocus.src}
+                alt={productShots.profileFocus.alt}
+              />
+            </div>
+          </div>
+        </section>
+
         <section className={styles.features}>
           <div className={styles.sectionInner}>
             <FeatureBlock
               title="Your public profile, with real usage"
-              body="Same profile layout as the app—league, level, live usage chart, and agent stack."
+              body="Charts, heatmaps, focus time, and agent breakdown—the same profile you share as @handle."
               href={`${APP}/${DEMO_PROFILE}`}
-              linkLabel="See a live profile"
-              media={<LandingProfileActivity />}
+              linkLabel="See a profile"
+              mediaSrc={productShots.profileUsage.src}
+              mediaAlt={productShots.profileUsage.alt}
+              mediaFrameClass={featureStyles.mediaClose}
             />
             <FeatureBlock
               reverse
               title="Leaderboard and leagues"
-              body="Real leaderboard rows, league badges, and token counts from the product UI."
+              body="See where you rank by tokens, streak, and league tier on the live board."
               href={`${APP}/leaderboard`}
               linkLabel="Open leaderboard"
-              media={<LandingLeaderboardPreview />}
+              mediaSrc={productShots.leaderboardTable.src}
+              mediaAlt={productShots.leaderboardTable.alt}
+              mediaFrameClass={featureStyles.mediaClose}
             />
             <FeatureBlock
               title="One CLI, every agent"
-              body="Top-agent breakdown uses the same bars and logos as your profile Focus tab."
+              body="Install after sign-in. The agentrnk CLI reads local logs from Cursor, Codex, Claude Code, and the rest—then publishes to your profile."
               href="https://www.npmjs.com/package/agentrnk"
               linkLabel="View on npm"
-              media={<LandingAgentTools />}
+              mediaSrc={productShots.profileAgents.src}
+              mediaAlt={productShots.profileAgents.alt}
+              mediaFrameClass={featureStyles.mediaClose}
             />
           </div>
         </section>

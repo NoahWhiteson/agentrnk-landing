@@ -55,12 +55,6 @@
   background: transparent !important;
 }
 
-.mediaClose {
-  --cut-radius: 14px;
-}
-
-.mediaClose .media {
-  object-fit: cover;
-  object-position: top center;
-  max-height: min(520px, 70vh);
+.media {
+  min-width: 0;
 }

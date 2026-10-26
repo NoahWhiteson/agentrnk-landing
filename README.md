@@ -7,15 +7,4 @@ npm install && npm run dev    # :5174
 npm run build                 # dist/
 ```
 
-### Product screenshots
-
-Hero, bento grid, and feature blocks use PNG shots from the live app (2× retina clips):
-
-```bash
-npm run capture:shots
-# APP_URL=http://127.0.0.1:5173 PROFILE_HANDLE=you npm run capture:shots
-```
-
-Writes `src/assets/shots/*.png`. Leaderboard needs auth unless you set `INVITE_URL` (one-time staff link) or keep the fallback poster under `src/assets/cuts/`.
-
-Legacy WebM capture: `npm run capture:media`.
+The landing page renders **composed product UI** (profile, leaderboard, heatmap mocks) in CSS—same dark surfaces as the app, no screenshots. Optional capture scripts (`capture:shots`, `capture:media`) are for legacy asset workflows only.

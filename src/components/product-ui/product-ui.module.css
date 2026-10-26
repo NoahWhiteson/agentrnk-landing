@@ -1,0 +1,315 @@
+.shell {
+  --ui-bg: #1a1a1a;
+  --ui-surface: #212121;
+  --ui-raised: #2a2a2a;
+  --ui-border: rgba(255, 255, 255, 0.08);
+  --ui-muted: rgba(255, 255, 255, 0.55);
+  --ui-dim: rgba(255, 255, 255, 0.38);
+  --ui-green: #45d483;
+  --ui-accent: #e8a045;
+
+  border-radius: 16px;
+  border: 1px solid var(--ui-border);
+  background: var(--ui-bg);
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 32px 80px rgba(0, 0, 0, 0.55);
+}
+
+.shellInset {
+  padding: clamp(1rem, 2.5vw, 1.35rem);
+}
+
+.urlBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.85rem;
+  border-bottom: 1px solid var(--ui-border);
+  background: #141414;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.6875rem;
+  color: var(--ui-dim);
+}
+
+.urlBar strong {
+  color: var(--ui-muted);
+  font-weight: 500;
+}
+
+.cover {
+  height: 5.5rem;
+  background: linear-gradient(135deg, #2a2418 0%, #1a1a1a 45%, #152a22 100%);
+  border-bottom: 1px solid var(--ui-border);
+}
+
+.profileHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: -2.25rem;
+  padding: 0 clamp(1rem, 2.5vw, 1.35rem);
+  position: relative;
+  z-index: 1;
+}
+
+.avatar {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 999px;
+  border: 3px solid var(--ui-surface);
+  background: linear-gradient(145deg, #3a3a3a, #222);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+.avatarLive {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--ui-green);
+  border: 2px solid var(--ui-surface);
+}
+
+.headMeta {
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 0.35rem;
+}
+
+.displayName {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.handle {
+  font-size: 0.8125rem;
+  color: var(--ui-dim);
+}
+
+.statRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin: 1rem clamp(1rem, 2.5vw, 1.35rem) 0;
+}
+
+.statCard {
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  background: var(--ui-surface);
+}
+
+.statLabel {
+  display: block;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ui-dim);
+  margin-bottom: 0.2rem;
+}
+
+.statValue {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.15rem;
+  margin: 1rem clamp(1rem, 2.5vw, 1.35rem) 0;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--ui-border);
+  overflow-x: auto;
+}
+
+.tab {
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  color: var(--ui-dim);
+  white-space: nowrap;
+}
+
+.tabActive {
+  color: #fff;
+  background: var(--ui-raised);
+}
+
+.panel {
+  padding: 0  clamp(1rem, 2.5vw, 1.35rem) clamp(1rem, 2.5vw, 1.35rem);
+}
+
+.chartBox {
+  height: 7rem;
+  border-radius: 12px;
+  background: var(--ui-surface);
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.chart {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.agentBars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.agentBarRow {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.8125rem;
+}
+
+.barTrack {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--ui-raised);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--ui-green), #2dd4bf);
+}
+
+.barTokens {
+  font-variant-numeric: tabular-nums;
+  color: var(--ui-muted);
+  font-size: 0.75rem;
+}
+
+.leagueTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: var(--ui-raised);
+  font-size: 0.75rem;
+  color: var(--ui-muted);
+}
+
+.boardHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.boardTitle {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.boardSub {
+  font-size: 0.75rem;
+  color: var(--ui-dim);
+}
+
+.boardRows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.boardRow {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto auto;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 10px;
+  background: var(--ui-surface);
+  font-size: 0.8125rem;
+}
+
+.rank {
+  font-variant-numeric: tabular-nums;
+  color: var(--ui-dim);
+  text-align: center;
+}
+
+.rowUser {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.rowAvatar {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background: var(--ui-raised);
+  flex-shrink: 0;
+}
+
+.rowName {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rowTokens {
+  font-variant-numeric: tabular-nums;
+  color: var(--ui-muted);
+  font-size: 0.75rem;
+}
+
+.heatmapLabel {
+  margin: 0 0 0.65rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ui-dim);
+}
+
+.heatmap {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  gap: 3px;
+}
+
+.heatCell {
+  aspect-ratio: 1;
+  border-radius: 3px;
+  background: var(--ui-raised);
+}
+
+.compact {
+  max-width: 100%;
+}
+
+.heroMock {
+  width: 100%;
+  max-width: 56rem;
+  margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  .statRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

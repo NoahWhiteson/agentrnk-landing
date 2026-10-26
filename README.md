@@ -7,21 +7,15 @@ npm install && npm run dev    # :5174
 npm run build                 # dist/
 ```
 
-### App screen recordings
+### Product screenshots
 
-Hero and feature blocks use real app captures (WebM @ 2× retina):
-
-```bash
-npm run capture:media
-# APP_URL=http://127.0.0.1:5173 npm run capture:media  # local app
-```
-
-Writes `src/assets/cuts/{profile,leaderboard}.webm` and `-poster.png`.
-
-For authenticated cuts (leaderboard + your own profile):
+Hero, bento grid, and feature blocks use PNG shots from the live app (2× retina clips):
 
 ```bash
-APP_URL=https://agentrnk.xyz INVITE_URL='https://agentrnk.xyz/auth/invite?t=…' npm run capture:media
+npm run capture:shots
+# APP_URL=http://127.0.0.1:5173 PROFILE_HANDLE=you npm run capture:shots
 ```
 
-Uses a **one-time** staff invite link; the script signs in, reads your `@username`, and records profile + leaderboard.
+Writes `src/assets/shots/*.png`. Leaderboard needs auth unless you set `INVITE_URL` (one-time staff link) or keep the fallback poster under `src/assets/cuts/`.
+
+Legacy WebM capture: `npm run capture:media`.

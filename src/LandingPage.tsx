@@ -3,15 +3,14 @@ import { AgentLogoStrip } from "./components/AgentLogoStrip";
 import { Btn } from "./components/Btn";
 import { FeatureBlock } from "./components/FeatureBlock";
 import { ProductCut } from "./components/ProductCut";
+import { UiShowcase } from "./components/UiShowcase";
 import { Wordmark } from "./components/Wordmark";
-import { cutMedia } from "./lib/media-cuts";
+import { productShots } from "./lib/media-shots";
 import styles from "./landing.module.css";
+import featureStyles from "./components/feature-block.module.css";
 
 const APP = "https://agentrnk.xyz";
 const DEMO_PROFILE = "cursor";
-
-const profileCut = cutMedia("profile");
-const leaderboardCut = cutMedia("leaderboard");
 
 export function LandingPage() {
   return (
@@ -51,15 +50,7 @@ export function LandingPage() {
             <AgentLogoStrip />
           </div>
 
-          <div className={styles.heroStage}>
-            <div className={styles.heroFog} aria-hidden />
-            <ProductCut
-              src={profileCut.src}
-              poster={profileCut.poster}
-              preferVideo={profileCut.preferVideo}
-              alt="Agentrnk profile with usage charts, league rank, and agent sync"
-            />
-          </div>
+          <UiShowcase />
         </section>
 
         <section className={styles.trust}>
@@ -71,35 +62,61 @@ export function LandingPage() {
           </div>
         </section>
 
+        <section className={styles.bento}>
+          <div className={styles.sectionInner}>
+            <h2 className={styles.bentoTitle}>The same UI you use every day</h2>
+            <p className={styles.bentoLead}>
+              Real product surfaces from agentrnk.xyz—profile stats, usage charts, and focus heatmaps.
+            </p>
+            <div className={styles.bentoGrid}>
+              <ProductCut
+                className={styles.bentoTile}
+                src={productShots.profileHeader.src}
+                alt={productShots.profileHeader.alt}
+              />
+              <ProductCut
+                className={styles.bentoTile}
+                src={productShots.profileUsage.src}
+                alt={productShots.profileUsage.alt}
+              />
+              <ProductCut
+                className={[styles.bentoTile, styles.bentoWide].join(" ")}
+                src={productShots.profileFocus.src}
+                alt={productShots.profileFocus.alt}
+              />
+            </div>
+          </div>
+        </section>
+
         <section className={styles.features}>
           <div className={styles.sectionInner}>
             <FeatureBlock
               title="Your public profile, with real usage"
-              body="Charts, heatmaps, focus time, and agent breakdown—the same profile you share as @handle, not a screenshot."
+              body="Charts, heatmaps, focus time, and agent breakdown—the same profile you share as @handle."
               href={`${APP}/${DEMO_PROFILE}`}
               linkLabel="See a profile"
-              mediaSrc={profileCut.src}
-              mediaPoster={profileCut.poster}
-              mediaAlt="Profile usage and focus tabs in Agentrnk"
+              mediaSrc={productShots.profileUsage.src}
+              mediaAlt={productShots.profileUsage.alt}
+              mediaFrameClass={featureStyles.mediaClose}
             />
             <FeatureBlock
               reverse
               title="Leaderboard and leagues"
-              body="See where you rank by tokens, streak, and league tier—the same live board you get after syncing the CLI."
+              body="See where you rank by tokens, streak, and league tier on the live board."
               href={`${APP}/leaderboard`}
               linkLabel="Open leaderboard"
-              mediaSrc={leaderboardCut.src}
-              mediaPoster={leaderboardCut.poster}
-              mediaAlt="Agentrnk leaderboard with ranks and leagues"
+              mediaSrc={productShots.leaderboardTable.src}
+              mediaAlt={productShots.leaderboardTable.alt}
+              mediaFrameClass={featureStyles.mediaClose}
             />
             <FeatureBlock
               title="One CLI, every agent"
               body="Install after sign-in. The agentrnk CLI reads local logs from Cursor, Codex, Claude Code, and the rest—then publishes to your profile."
               href="https://www.npmjs.com/package/agentrnk"
               linkLabel="View on npm"
-              mediaSrc={profileCut.src}
-              mediaPoster={profileCut.poster}
-              mediaAlt="Agent sync on profile"
+              mediaSrc={productShots.profileAgents.src}
+              mediaAlt={productShots.profileAgents.alt}
+              mediaFrameClass={featureStyles.mediaClose}
             />
           </div>
         </section>

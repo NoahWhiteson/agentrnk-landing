@@ -8,8 +8,8 @@ export function FeatureBlock({
   href,
   linkLabel,
   mediaSrc,
-  mediaPoster,
   mediaAlt,
+  mediaFrameClass,
   reverse,
 }: {
   title: string;
@@ -17,8 +17,8 @@ export function FeatureBlock({
   href: string;
   linkLabel: string;
   mediaSrc: string;
-  mediaPoster?: string;
   mediaAlt: string;
+  mediaFrameClass?: string;
   reverse?: boolean;
 }) {
   return (
@@ -31,7 +31,7 @@ export function FeatureBlock({
           <span aria-hidden> →</span>
         </Btn>
       </div>
-      <ProductCut src={mediaSrc} poster={mediaPoster} alt={mediaAlt} />
+      <ProductCut src={mediaSrc} alt={mediaAlt} className={mediaFrameClass} />
     </article>
   );
 }

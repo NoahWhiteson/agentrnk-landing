@@ -9,7 +9,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "capture:media": "node scripts/capture-app-media.mjs"
+    "capture:media": "node scripts/capture-app-media.mjs",
+    "capture:shots": "node scripts/capture-app-shots.mjs"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",

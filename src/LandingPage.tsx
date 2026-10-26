@@ -1,12 +1,14 @@
 import { USAGE_SYNC_AGENTS } from "@/lib/coding-agents";
+import {
+  LandingAgentTools,
+  LandingLeaderboardPreview,
+  LandingProfileActivity,
+  LandingProfileHero,
+} from "@/marketing/landing-ui";
 import { AgentLogoStrip } from "./components/AgentLogoStrip";
 import { Btn } from "./components/Btn";
 import { FeatureBlock } from "./components/FeatureBlock";
 import { Wordmark } from "./components/Wordmark";
-import { AgentSyncMock } from "./components/product-ui/AgentSyncMock";
-import { ProfileActivityMock } from "./components/product-ui/ProfileActivityMock";
-import { LeaderboardMock } from "./components/product-ui/LeaderboardMock";
-import { ProfileHeroMock } from "./components/product-ui/ProfileHeroMock";
 import styles from "./landing.module.css";
 
 const APP = "https://agentrnk.xyz";
@@ -51,7 +53,7 @@ export function LandingPage() {
           </div>
 
           <div className={styles.heroProduct}>
-            <ProfileHeroMock />
+            <LandingProfileHero />
           </div>
         </section>
 
@@ -68,25 +70,25 @@ export function LandingPage() {
           <div className={styles.sectionInner}>
             <FeatureBlock
               title="Your public profile, with real usage"
-              body="Charts, heatmaps, focus time, and agent breakdown—the same profile you share as @handle."
+              body="Same profile layout as the app—league, level, live usage chart, and agent stack."
               href={`${APP}/${DEMO_PROFILE}`}
-              linkLabel="See a profile"
-              media={<ProfileActivityMock />}
+              linkLabel="See a live profile"
+              media={<LandingProfileActivity />}
             />
             <FeatureBlock
               reverse
               title="Leaderboard and leagues"
-              body="See where you rank by tokens, streak, and league tier on the live board."
+              body="Real leaderboard rows, league badges, and token counts from the product UI."
               href={`${APP}/leaderboard`}
               linkLabel="Open leaderboard"
-              media={<LeaderboardMock />}
+              media={<LandingLeaderboardPreview />}
             />
             <FeatureBlock
               title="One CLI, every agent"
-              body="Install after sign-in. The agentrnk CLI reads local logs from Cursor, Codex, Claude Code, and the rest—then publishes to your profile."
+              body="Top-agent breakdown uses the same bars and logos as your profile Focus tab."
               href="https://www.npmjs.com/package/agentrnk"
               linkLabel="View on npm"
-              media={<AgentSyncMock />}
+              media={<LandingAgentTools />}
             />
           </div>
         </section>

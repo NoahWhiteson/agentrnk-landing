@@ -1,5 +1,6 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { resolveAppRoot } from "./scripts/app-root.mjs";
@@ -10,7 +11,7 @@ const appRoot = resolveAppRoot();
 export default defineConfig({
   root: landingDir,
   publicDir: path.join(appRoot, "public"),
-  plugins: [react()],
+  plugins: [tailwindcss(), react()],
   resolve: {
     alias: { "@": path.join(appRoot, "src") },
   },

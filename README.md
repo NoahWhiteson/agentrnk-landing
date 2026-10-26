@@ -7,4 +7,4 @@ npm install && npm run dev    # :5174
 npm run build                 # dist/
 ```
 
-The landing page renders **composed product UI** (profile, leaderboard, heatmap mocks) in CSS—same dark surfaces as the app, no screenshots. Optional capture scripts (`capture:shots`, `capture:media`) are for legacy asset workflows only.
+The landing page imports **real app components** from `@/marketing/landing-ui` (profile, `LineChart`, `ActivityHeatmap`, `LeagueBadge`, leaderboard rows) with fixture data. `main.tsx` loads `@/index.css` so styles match agentrnk.xyz.

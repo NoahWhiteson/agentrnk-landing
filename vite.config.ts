@@ -13,7 +13,12 @@ export default defineConfig({
   publicDir: path.join(appRoot, "public"),
   plugins: [tailwindcss(), react()],
   resolve: {
-    alias: { "@": path.join(appRoot, "src") },
+    alias: {
+      "@": path.join(appRoot, "src"),
+      react: path.join(landingDir, "node_modules/react"),
+      "react-dom": path.join(landingDir, "node_modules/react-dom"),
+    },
+    dedupe: ["react", "react-dom", "react-aria-components", "motion"],
   },
   build: {
     outDir: path.join(landingDir, "dist"),
